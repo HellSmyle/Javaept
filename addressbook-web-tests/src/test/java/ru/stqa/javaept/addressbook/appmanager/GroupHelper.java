@@ -2,11 +2,12 @@ package ru.stqa.javaept.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import ru.stqa.javaept.addressbook.model.GroupData;
 
 public class GroupHelper extends HelperBase {
 
-  public GroupHelper(WebDriver wd) {
+  public GroupHelper(FirefoxDriver wd) {
     super(wd);
   }
 
@@ -20,8 +21,8 @@ public class GroupHelper extends HelperBase {
 
   public void fillGroupForm(GroupData groupData) {
     type(By.name("group_name"), groupData.getName());
-    type(By.name("group_header"), groupData.getName());
-    type(By.name("group_footer"), groupData.getName());
+    type(By.name("group_header"), groupData.getHeader());
+    type(By.name("group_footer"), groupData.getFooter());
   }
 
 
