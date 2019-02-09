@@ -1,4 +1,4 @@
-package ru.stqa.javaept.addressbook;
+package ru.stqa.javaept.addressbook.model;
 
 public class UserData {
   private final String firstname;
