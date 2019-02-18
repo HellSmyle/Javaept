@@ -16,6 +16,9 @@ public class UserHelper extends HelperBase {
   public void submitNewContactCreation() {
     click(By.xpath("(//input[@name='submit'])[2]"));
   }
+  public void addNewContact() {
+    click(By.linkText("add new"));
+  }
 
   public void fillNewContactForm(UserData userData, boolean creation) {
     type(By.name("firstname"), userData.getFirstname());
@@ -29,7 +32,7 @@ public class UserHelper extends HelperBase {
     } else {
       Assert.assertFalse(isElementPresent(By.name("new_group")));
     }
-   
+
   }
 
 

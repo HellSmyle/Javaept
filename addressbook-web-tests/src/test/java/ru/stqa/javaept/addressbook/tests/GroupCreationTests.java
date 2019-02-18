@@ -10,11 +10,7 @@ public class GroupCreationTests extends TestBase {
   @Test
   public void testGroupCreation() {
     app.getNavigationHelper().goToGroupPage();
-    app.getGroupHelper().initGroupCreation();
-    app.getGroupHelper().fillGroupForm(new GroupData("test1", null, null));
-    app.getGroupHelper().submitGroupCreation();
-    // ERROR: Caught exception [ERROR: Unsupported command [doubleClick | name=submit | ]]
-    app.getGroupHelper().returntoGroupPage();
+    app.getGroupHelper().createGroup(new GroupData("test1", null, null));
   }
 
 

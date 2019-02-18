@@ -15,8 +15,8 @@ public class PointTests {
   @Test
   public void testDisError(){
     Point p = new Point(14,27);
-    Point p2 = new Point(33,56);
-    Assert.assertNotEquals(p.dis(p2), 371943);
+    Point p3 = new Point(33,56);
+    Assert.assertNotEquals(p.dis(p3), 371943);
 
   }
 }
