@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+import ru.stqa.javaept.addressbook.model.GroupData;
 import ru.stqa.javaept.addressbook.model.UserData;
 
 public class UserHelper extends HelperBase {
@@ -13,10 +14,8 @@ public class UserHelper extends HelperBase {
     super(wd);
   }
 
-  public void submitNewContactCreation() {
-    click(By.xpath("(//input[@name='submit'])[2]"));
-  }
-  public void addNewContact() {
+
+  public void initContactCreation() {
     click(By.linkText("add new"));
   }
 
@@ -32,8 +31,43 @@ public class UserHelper extends HelperBase {
     } else {
       Assert.assertFalse(isElementPresent(By.name("new_group")));
     }
-
   }
 
+  public void submitNewContactCreation() {
+    click(By.name("submit"));
+  }
+
+  public void gotoHomePage() {
+    click(By.linkText("home"));
+  }
+
+
+  public void initModificationContact() {
+    click(By.cssSelector("img[alt='Edit']"));
+  }
+
+  public void submitContactModification() {
+    click(By.name("update"));
+  }
+
+
+  public void createContact(UserData user, boolean b) {
+    initContactCreation();
+    fillNewContactForm(user, true);
+    submitNewContactCreation();
+  }
+
+  public void selectContact() {
+    click(By.name("selected[]"));
+  }
+
+  public void deleteSelectedContact() {
+    click(By.xpath("//*/input[@value='Delete']"));
+    wd.switchTo().alert().accept();
+  }
+
+  public boolean isThereAContact() {
+    return isElementPresent(By.name("selected[]"));
+  }
 
 }

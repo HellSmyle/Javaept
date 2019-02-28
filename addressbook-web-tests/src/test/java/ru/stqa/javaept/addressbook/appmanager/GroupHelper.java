@@ -2,7 +2,6 @@ package ru.stqa.javaept.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import ru.stqa.javaept.addressbook.model.GroupData;
 
 public class GroupHelper extends HelperBase {
@@ -38,6 +37,11 @@ public class GroupHelper extends HelperBase {
     click(By.name("selected[]"));
   }
 
+  public void initGroupModification () {click(By.name("edit"));}
+
+  public void submitGroupModification() {click(By.name("update"));
+  }
+
   public void createGroup(GroupData group) {
     initGroupCreation();
     fillGroupForm(group);
@@ -48,4 +52,6 @@ public class GroupHelper extends HelperBase {
   public boolean isThereAGroup() {
     return isElementPresent(By.name("selected[]"));
   }
+
+
 }
