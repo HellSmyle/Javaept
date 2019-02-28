@@ -32,7 +32,7 @@ private SessionHelper sessionHelper;
 
      }
     wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-    wd.get("http://localhost/addressbook/group.php");
+    wd.get("http://localhost/addressbook");
     groupHelper = new GroupHelper(wd);
     navigationHelper = new NavigationHelper(wd);
     userHelper = new UserHelper(wd);
